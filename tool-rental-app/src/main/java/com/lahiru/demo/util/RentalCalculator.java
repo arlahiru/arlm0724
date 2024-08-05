@@ -1,9 +1,6 @@
 package com.lahiru.demo.util;
 
-import com.lahiru.demo.model.ToolType;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 
 @Component
 public class RentalCalculator {

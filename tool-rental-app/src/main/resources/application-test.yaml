@@ -5,6 +5,6 @@ logging:
   level:
     org.*: ERROR
     com.zaxxer.*: ERROR
-    com.lahiru.demo.*: INFO
+    com.lahiru.demo.*: DEBUG
 
 

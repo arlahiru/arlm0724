@@ -1,19 +1,32 @@
 package com.lahiru.demo;
 
 import com.lahiru.demo.util.HolidayCalendar;
+import com.lahiru.demo.util.RentalCalculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class HolidayCalendarTest {
 
     @Autowired
     HolidayCalendar holidayCalendar;
+
+    @Configuration
+    public static class Config {
+        @Bean
+        public HolidayCalendar holidayCalculator(){
+            return new HolidayCalendar();
+        }
+    }
 
     @Test
     public void test_Independence_Day_Weekday(){

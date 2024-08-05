@@ -2,6 +2,9 @@ package com.lahiru.demo.model;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 @Getter
 public enum Tool {
 
@@ -18,6 +21,13 @@ public enum Tool {
         this.toolCode = toolCode;
         this.toolType = toolType;
         this.brand = brand;
+    }
+
+    public static Tool getByToolCode(String toolCode){
+        Optional<Tool>  tool = Arrays.stream(Tool.values())
+                .filter(t -> t.getToolCode().equals(toolCode))
+                .findFirst();
+        return tool.orElse(null);
     }
 
     @Override

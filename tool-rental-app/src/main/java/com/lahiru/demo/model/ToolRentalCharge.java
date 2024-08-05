@@ -31,4 +31,15 @@ public enum ToolRentalCharge {
             case JACKHAMMER -> JACKHAMMER_RENTAL;
         };
     }
+
+    @Override
+    public String toString() {
+        return "ToolRentalCharge{" +
+                "toolType=" + toolType +
+                ", dailyCharge=" + dailyCharge +
+                ", isWeekdayCharge=" + isWeekdayCharge +
+                ", isWeekendCharge=" + isWeekendCharge +
+                ", isHolidayCharge=" + isHolidayCharge +
+                '}';
+    }
 }
