@@ -1,6 +1,6 @@
 # Tool Rental Application
 
-## System Requirement:
+### System Requirements
 - Java 17
 - Apache Maven 3.9.4
 
