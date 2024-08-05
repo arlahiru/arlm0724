@@ -34,8 +34,10 @@ public class ToolRentalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		log.debug("Tool Rental Application Started");
-		System.out.println();
-		System.out.println("<================ Welcome to Tool Rental Application ================>");
+
+		System.out.println("|--------------------------------------------------------------------|");
+		System.out.println("|              Welcome to Tool Rental Application                    |");
+		System.out.println("|--------------------------------------------------------------------|");
 		System.out.println();
 
 		Scanner enter = new Scanner(System.in);
@@ -67,23 +69,29 @@ public class ToolRentalApplication implements CommandLineRunner {
 				discountPercentageValue = enter.next();
 
 				try {
+					//validate inputs
 					InputValidator.validateInputs(toolCode, rentalDaysValue, checkoutDateValue, discountPercentageValue);
+					//parse inputs
 					int rentalDays = Integer.parseInt(rentalDaysValue);
 					LocalDate checkoutDate = LocalDate.parse(checkoutDateValue, DateTimeFormatter.ofPattern(Formatter.DATE_FORMAT));
 					int discountPercentage =  Integer.parseInt(discountPercentageValue);
+					//execute rental service
 					RentalAgreement rentalAgreement = rentalService.checkout(toolCode, rentalDays, checkoutDate, discountPercentage);
+					//print rental agreement to console
 					rentalAgreement.print();
-
 				}catch (InvalidInputException | RentalAgreementException e){
+					//Handle exceptions and print validation messages to console
+					System.out.println();
+					System.out.println("!!!!! Validation Errors !!!!!");
 					System.out.println(e.getMessage());
+					//return back to prompts
 					continue;
 				}
-
-
 			}else {
 				System.out.println("Invalid Option. Please select valid option.");
 			}
 		} while(true);
+
 		log.debug("Tool Rental Application Terminated");
 	}
 

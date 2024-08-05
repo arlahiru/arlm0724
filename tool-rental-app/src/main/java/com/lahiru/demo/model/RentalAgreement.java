@@ -103,16 +103,16 @@ public class RentalAgreement {
         private void validate() throws RentalAgreementException {
             StringBuilder validationErrors = new StringBuilder();
             if(rentalDays < 1){
-                validationErrors.append("Rental days must be greater than 0").append("\n");
+                validationErrors.append("* Rental days must be greater than 0").append("\n");
             }
             if(discountPercent < 0 || discountPercent > 100){
-                validationErrors.append("Discount percent must be between 0 to 100").append("\n");
+                validationErrors.append("* Discount percent must be between 0 to 100").append("\n");
             }
             if(tool == null){
-                validationErrors.append("Tool cannot be empty").append("\n");
+                validationErrors.append("* Tool cannot be empty").append("\n");
             }
             if(checkoutDate == null){
-                validationErrors.append("Checkout date cannot be empty").append("\n");
+                validationErrors.append("* Checkout date cannot be empty").append("\n");
             }
             if(!validationErrors.isEmpty()){
                 throw new RentalAgreementException(validationErrors.toString());
