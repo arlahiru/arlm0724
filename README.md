@@ -1,4 +1,4 @@
-# Tool Rental Application
+# Programming Demo
 
 ### System Requirements
 - Java 17
