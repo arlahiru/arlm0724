@@ -9,5 +9,5 @@
 - Run `mvn clean install`
 
 ## How to run application
-- Go to target folder
+- Go to `target` folder
 - Run `java -jar tool-rental-app-0.0.1-SNAPSHOT.jar`
